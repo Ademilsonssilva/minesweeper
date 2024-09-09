@@ -18,15 +18,14 @@ class BombAmount extends Item
     * @returns {Element}
     */
    toString()
-	{
-		let element = document.createElement("span");
+   {
+	   let element = document.createElement("span");
       element.innerHTML = this.description > 0 ? this.description : "";
       element.style.fontWeight = "bold";
       element.style.color = this._colors[this.description];
-
       element.classList.add("bomb-amount");
-
-		return element;
-	}
+   
+      return element;
+   }
    
 }

@@ -22,7 +22,7 @@ class GameService
    /**
     * Constructor
     * 
-    * This method creates a new instance of GameService and injects the 
+    * This method creates a new instance of GameService and injects the services that it will use.
     * 
     * @constructor
     */

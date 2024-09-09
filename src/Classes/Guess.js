@@ -14,11 +14,11 @@ class Guess extends Item
     */
    toString()
    {
-     let element = document.createElement("i");
-     element.classList.add("fas");
-     element.classList.add("fa-question");
-     element.style.color = "purple";
+      let element = document.createElement("i");
+      element.classList.add("fas");
+      element.classList.add("fa-question");
+      element.style.color = "purple";
 
-     return element;
+      return element;
    }
 }

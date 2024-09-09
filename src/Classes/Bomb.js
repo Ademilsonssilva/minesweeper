@@ -14,11 +14,11 @@ class Bomb extends Item
     */
    toString()
    {
-     let element = document.createElement("i");
-     element.classList.add("fas");
-     element.classList.add("fa-bomb");
-     element.classList.add("bomb");
+      let element = document.createElement("i");
+      element.classList.add("fas");
+      element.classList.add("fa-bomb");
+      element.classList.add("bomb");
 
-     return element;
+      return element;
    }
 }

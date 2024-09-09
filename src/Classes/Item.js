@@ -25,11 +25,10 @@ class Item
     * @returns {string}
     */
    toString()
-	{
+   {
+      let element = document.createElement("span");
 
-		let element = document.createElement("span");
-
-		return element;
-	}
+      return element;
+   }
    
 }

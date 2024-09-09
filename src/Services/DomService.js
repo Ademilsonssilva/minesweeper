@@ -6,7 +6,6 @@
  * @class 
  * 
  * @method drawBoard 
- * @method blockBoard
  * @method recursiveRevealPosition
  * @method drawBombCounter
  * 
@@ -100,7 +99,6 @@ class DomService
                   return alert("Número máximo de bandeiras atingido!");
                }
 
-               let gameWon = false;
                if (newPositionContent instanceof Flag) {
                   game._placedFlagsPosition.push(thisPosition);
                   game._placedFlags++;
@@ -108,7 +106,7 @@ class DomService
                   if (gameService.verifyWin(game)){
                      game._gameWon = true;
                      game._over = true;
-                     gameWon = true;
+                     alert("Parabéns, você venceu!");
                   }
                }
                else if (positionContent instanceof Flag) {
@@ -118,10 +116,6 @@ class DomService
                boardService.putItem(board, thisPosition, newPositionContent);
                this.drawBoard(game);
 
-               if (gameWon) {
-                  this.blockBoard();
-                  alert("Parabéns, você venceu!");
-               }
             });
 
             rowElement.appendChild(cellElement);
@@ -130,21 +124,6 @@ class DomService
       });
 
       this.drawBombCounter(game);
-   }
-
-   /**
-    * This method blocks the board, preventing the user from interacting with it after the game finishes.
-    * 
-    * @returns void
-    */
-   blockBoard()
-   {
-      let cells = document.querySelectorAll('.cell');
-
-      cells.forEach(cell => {
-         cell.addEventListener("click", () => null);
-         cell.addEventListener("contextmenu", (event) => {event.preventDefault();});
-      });
    }
 
    /**

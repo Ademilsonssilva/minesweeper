@@ -7,18 +7,18 @@
  */
 class Flag extends Item
 {
-	/**
-	 * @description Returns the flag icon element.
-	 * 
-	 * @returns {Element}
-	 */
-	toString()
-	{
-		let element = document.createElement("i");
-		element.classList.add("fas");
-		element.classList.add("fa-flag");
-		element.style.color = "red";
+   /**
+    * @description Returns the flag icon element.
+    * 
+    * @returns {Element}
+    */
+   toString()
+   {
+	   let element = document.createElement("i");
+	   element.classList.add("fas");
+	   element.classList.add("fa-flag");
+	   element.style.color = "red";
 
-		return element;
-	}
+	   return element;
+   }
 }
