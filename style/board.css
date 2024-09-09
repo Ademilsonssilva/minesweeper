@@ -1,0 +1,24 @@
+.row {
+   display: flex;
+}
+
+.cell {
+   border: 1px solid black;
+   width: 30px; 
+   height: 30px; 
+   overflow: hidden; 
+   text-align: center; 
+   box-sizing: border-box; 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.cell:has(.bomb-amount) {
+   background-color: #eeeaea; 
+}
+
+.cell:has(.bomb) {
+   background-color: black; 
+   color: red; 
+}

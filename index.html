@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Campo Minado</title>
+   <link rel="stylesheet" type="text/css" href="style/board.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <h1>Campo minado</h1>
+
+   <p><a href="https://github.com/Ademilsonssilva/minesweeper">Github</a></p>
+   <label for="difficulty">Dificuldade</label>
+   <select id="difficulty">
+      <option value="easy" selected>Fácil</option>
+      <option value="medium">Médio</option>
+      <option value="hard">Difícil</option>
+   </select>
+   <br>
+   <button onclick="startGame()">iniciar</button>
+
+   <div class="board" id="board"></div>
+   <br>
+   <div id="bomb-counter"></div>
+
+   <script src="src/Classes/Game.js"></script>
+   <script src="src/Classes/Position.js"></script>
+   <script src="src/Classes/Item.js"></script>
+   <script src="src/Classes/BombAmount.js"></script>
+   <script src="src/Classes/Bomb.js"></script>
+   <script src="src/Classes/Flag.js"></script>
+   <script src="src/Classes/Guess.js"></script>
+   <script src="src/Classes/Board.js"></script>
+   <script src="src/Services/DomService.js"></script>
+   <script src="src/Services/GameService.js"></script>
+   <script src="src/Services/PositionService.js"></script>
+   <script src="src/Services/BoardService.js"></script>
+   <script>
+
+      var gameService = new GameService();
+      
+      var game = null;
+
+      /**
+       * Initializes the game
+       */
+      function startGame() {
+
+         let rules = getDifficultyRules();
+         
+         game = new Game(rules.size, rules.bombs);
+
+         gameService.initialize(game);
+
+      }
+
+      /**
+       * Get the rules for the selected difficulty 
+       */
+      function getDifficultyRules() {
+         let difficulty = document.getElementById('difficulty').value;
+
+         switch (difficulty) {
+            case 'easy':
+               return { size: 9, bombs: 10 };
+            case 'medium':
+               return { size: 16, bombs: 40 };
+            case 'hard':
+               return { size: 27, bombs: 99 };
+         }
+      }
+
+   </script>
+   
+</body>
+</html>
